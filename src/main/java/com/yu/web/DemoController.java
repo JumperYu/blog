@@ -39,7 +39,6 @@ public class DemoController extends BaseController {
 
 	@RequestMapping(value = "/test.do")
 	public String test() {
-		log.info("qu si ");
 		return "index";
 	}
 
