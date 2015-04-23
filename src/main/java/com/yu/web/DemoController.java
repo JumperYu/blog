@@ -18,10 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class DemoController extends BaseController {
 
-	public DemoController() {
-		log.debug("hah");
-	}
-
 	@RequestMapping("/test1")
 	@ResponseBody
 	public String test1() {
@@ -41,10 +37,10 @@ public class DemoController extends BaseController {
 		return "free";
 	}
 
-	@RequestMapping(value = "/test")
+	@RequestMapping(value = "/test.do")
 	public String test() {
 		log.info("qu si ");
-		return "haha";
+		return "index";
 	}
 
 }
