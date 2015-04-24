@@ -1,20 +1,23 @@
-package blog;
+package jetty;
+
+import org.mortbay.jetty.Server;
+import org.mortbay.jetty.webapp.WebAppContext;
 
 
 public class JettyRunTest {
 
-/*	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
 		System.setProperty("PROJECT_NAME", "blog");
 		System.setProperty("ENV", "dev");
 		String dir = System.getProperty("user.dir");
-
+		System.out.println(dir);
 		Server server = buildNormalServer(80, "/");
 		server.start();
 	}
 
-	*//**
+	/**
 	 * 创建用于正常运行调试的Jetty Server, 以src/main/webapp为Web应用目录.
-	 *//*
+	 */
 	public static Server buildNormalServer(int port, String contextPath) {
 		Server server = new Server(port);
 		WebAppContext webContext = new WebAppContext("src/main/webapp",
@@ -24,5 +27,5 @@ public class JettyRunTest {
 		server.setHandler(webContext);
 		server.setStopAtShutdown(true);
 		return server;
-	}*/
+	}
 }

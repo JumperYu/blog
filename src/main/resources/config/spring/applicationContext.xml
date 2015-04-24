@@ -129,6 +129,13 @@
 		<property name="password" value="${db.identity}" />
 	</bean>
 
+	<!-- mybatis定义 
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:config/mybatis-config.xml"></property>
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath*:sql/*.xml" />
+	</bean>-->
+
 	<!-- JNDI数据源 -->
 	<!-- <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
 		<property name="jndiName"> <value>java:comp/env/jdbc/cphoto</value> </property> 

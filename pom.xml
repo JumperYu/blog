@@ -20,18 +20,18 @@
 
 	<dependencies>
 		<!-- jetty start -->
-<!-- 		<dependency>
+		<dependency>
 			<groupId>org.mortbay.jetty</groupId>
 			<artifactId>jetty</artifactId>
 			<version>6.1.24</version>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.mortbay.jetty</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-		<dependency>
-			<groupId>org.mortbay.jetty</groupId>
-			<artifactId>jsp-2.1-jetty</artifactId>
-			<version>6.1.24</version>
-			<scope>test</scope>
-		</dependency> -->
 		<!-- jetty end -->
 	</dependencies>
 

@@ -3,6 +3,7 @@ package com.yu.utils;
 import java.util.Properties;
 
 import org.apache.commons.codec.binary.Base64;
+import org.mortbay.log.Log;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
@@ -19,7 +20,7 @@ public class MyPropertyPlaceholderConfigurer extends
 		String url = props.getProperty("db.url");
 		String user = props.getProperty("db.user");
 		String identity = props.getProperty("db.identity");
-
+			
 		// 赋值
 		props.setProperty("db.class",
 				new String(Base64.decodeBase64(clasz.getBytes())));
@@ -29,6 +30,12 @@ public class MyPropertyPlaceholderConfigurer extends
 				new String(Base64.decodeBase64(user.getBytes())));
 		props.setProperty("db.identity",
 				new String(Base64.decodeBase64(identity.getBytes())));
+		
+		logger.info(props.getProperty("db.class"));
+		logger.info(props.getProperty("db.url"));
+		logger.info(props.getProperty("db.user"));
+		logger.info(props.getProperty("db.identity"));
+		
 		super.processProperties(beanFactoryToProcess, props);
 	}
 
