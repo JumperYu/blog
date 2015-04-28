@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yu.common.LoginUserContext;
 import com.yu.common.Result;
 import com.yu.common.ResultCode;
-import com.yu.po.Account;
+import com.yu.user.po.Account;
 
 /**
  * 用户授权

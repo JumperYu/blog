@@ -31,11 +31,13 @@
 	<!-- 指定别名 如果指定包名 则看是否有注解 若无则生成 例如 mybatis.Blog对应别名为Blog -->
 	<typeAliases>
 		<!-- <typeAlias type="mybatis.Blog" alias="Blog"/> -->
-		<package name="mybatis" />
+		<!-- 注释掉也行 -->
+		<!-- <package name="mybatis" /> -->
 	</typeAliases>
 	
 	<!-- 类型处理器 -->
 	<typeHandlers>
+	  <!-- 暂时没用 -->
 	  <typeHandler handler="mybatis.ExampleTypeHandler"/>
 	</typeHandlers>
 	
@@ -54,7 +56,11 @@
 	
 	<!-- 映射器 -->
 	<mappers>
-		<mapper resource="sql/test.xml" />
+		<!-- install all xml as mapper in sql floder -->
+		<!-- <mapper resource="sql/test.xml" /> -->
+		<!-- install java interface as mapper -->
+		<package name="mybatis"/>
+		<package name="com.yu.user.mapper"/>
 	</mappers>
 	
 	

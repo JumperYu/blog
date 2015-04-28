@@ -13,7 +13,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yu.common.LoginUserContext;
-import com.yu.po.Account;
+import com.yu.user.po.Account;
 
 public class AuthInterceptor implements HandlerInterceptor {
 

@@ -3,7 +3,7 @@ package com.yu.common;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.yu.po.Account;
+import com.yu.user.po.Account;
 
 public class LoginUserContext {
 

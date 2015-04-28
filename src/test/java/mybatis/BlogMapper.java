@@ -11,6 +11,12 @@ import org.apache.ibatis.annotations.Select;
  *
  */
 public interface BlogMapper {
+	
+	// 注解sql
 	@Select("SELECT * FROM blog WHERE id = #{id}")
-	Blog selectBlog(int id);
+	Blog selectBlogFromId(int id);
+	
+	// 从xml读sql
+	@Select("SELECT * FROM blog WHERE content = #{content}")
+	Blog selectBlogFromContent(String content);
 }

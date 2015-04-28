@@ -58,7 +58,7 @@
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
-		<property name="suffix" value=".html" />
+		<property name="suffix" value=".jsp" />
 	</bean>
 
 	<!-- 定义FreeMarker的配置 -->
@@ -129,13 +129,13 @@
 		<property name="password" value="${db.identity}" />
 	</bean>
 
-	<!-- mybatis定义 
+	<!-- mybatis定义 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="configLocation" value="classpath:config/mybatis-config.xml"></property>
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations" value="classpath*:sql/*.xml" />
-	</bean>-->
-
+	</bean>
+	
 	<!-- JNDI数据源 -->
 	<!-- <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
 		<property name="jndiName"> <value>java:comp/env/jdbc/cphoto</value> </property> 

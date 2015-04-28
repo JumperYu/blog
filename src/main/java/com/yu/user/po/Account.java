@@ -1,4 +1,4 @@
-package com.yu.po;
+package com.yu.user.po;
 
 public class Account {
 

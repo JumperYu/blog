@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybatis.BlogMapper">
 
-<!-- 	<select id="selectBlog" resultType="mybatis.Blog">
-		select * from Blog where id =
-		#{id}
+<!--  	<select id="selectBlogFromContent" resultType="mybatis.Blog">
+		select * from Blog where content =
+		#{content}
 	</select> -->
 </mapper>
