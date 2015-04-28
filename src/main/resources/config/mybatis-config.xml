@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- 有顺序之分 还可以在SessionFactory改变properties -->
+	<properties resource="config/props/mybatis-db.properties">
+		<property name="uname" value="zxm" />
+		<property name="upw" value="qwerty" />
+	</properties>
+
+	<!-- 运行环境配置 -->
+	<settings>
+		<setting name="cacheEnabled" value="true" /> <!-- 缓存 -->
+		<setting name="lazyLoadingEnabled" value="true" /> <!-- 延迟加载关联对象 -->
+		<setting name="aggressiveLazyLoading" value="true" /> <!-- 延迟加载关联对象的属性也是延迟加载 -->
+		<setting name="multipleResultSetsEnabled" value="true" /> <!-- 是否允许单一语句返回多结果集 -->
+		<setting name="useColumnLabel" value="true" /> <!-- 使用列标签代替列名集 -->
+		<setting name="useGeneratedKeys" value="false" /> <!-- 允许JDBC支持自动生成主键 需要驱动支持 -->
+		<setting name="autoMappingBehavior" value="PARTIAL" /> 
+		<setting name="defaultExecutorType" value="SIMPLE" /> <!-- 执行器是否可以重用 -->
+		<setting name="defaultStatementTimeout" value="25" /> <!-- 执行超时时间 -->
+		<setting name="safeRowBoundsEnabled" value="false" /> <!-- 允许在嵌套语句中使用行分界 -->
+		<setting name="mapUnderscoreToCamelCase" value="false" /> <!-- ROW_NUM 映射 rowNum -->
+		<setting name="localCacheScope" value="SESSION" /> <!-- 缓存于同一会话中 -->
+		<setting name="jdbcTypeForNull" value="OTHER" /> <!-- 空值指定类型 -->
+		<setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString" />
+	</settings>
+
+	<!-- 指定别名 如果指定包名 则看是否有注解 若无则生成 例如 mybatis.Blog对应别名为Blog -->
+	<typeAliases>
+		<!-- <typeAlias type="mybatis.Blog" alias="Blog"/> -->
+		<!-- 注释掉也行 -->
+		<!-- <package name="mybatis" /> -->
+	</typeAliases>
+	
+	<!-- 类型处理器 -->
+	<typeHandlers>
+	  <!-- 暂时没用 -->
+	  <typeHandler handler="mybatis.ExampleTypeHandler"/>
+	</typeHandlers>
+	
+	<!-- 环境 -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${db.class}" />
+				<property name="url" value="${db.url}" />
+				<property name="username" value="${uname}" />
+				<property name="password" value="${upw}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 映射器 -->
+	<mappers>
+		<!-- install all xml as mapper in sql floder -->
+		<!-- <mapper resource="sql/test.xml" /> -->
+		<!-- install java interface as mapper -->
+		<package name="com.yu.user.mapper"/>
+	</mappers>
+	
+	
+</configuration>
