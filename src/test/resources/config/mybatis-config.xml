@@ -57,7 +57,7 @@
 	<!-- 映射器 -->
 	<mappers>
 		<!-- install all xml as mapper in sql floder -->
-		<!-- <mapper resource="sql/test.xml" /> -->
+		<!--  <mapper resource="sql/Account.xml" /> -->
 		<!-- install java interface as mapper -->
 		<package name="mybatis"/>
 		<package name="com.yu.user.mapper"/>

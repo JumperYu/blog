@@ -2,6 +2,9 @@ package mybatis;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -12,6 +15,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.yu.user.mapper.AccountMapper;
+import com.yu.user.po.Account;
 
 public class TestMybatis {
 
@@ -44,12 +48,28 @@ public class TestMybatis {
 		Blog blog = mapper.selectBlogFromContent("哈哈");
 		System.out.println(blog);
 	}
-	
 
 	@Test
-	public void testAccout(){
+	public void testAccout() {
 		AccountMapper mapper = session.getMapper(AccountMapper.class);
 		System.out.println(mapper.queryAccountByPassport("haha"));
 	}
-	
+
+	@Test
+	public void testAccountByPackage() {
+		Account account = (Account) session.selectOne(
+				"com.yu.user.mapper.AccountMapper.queryAccountByPassport",
+				"haha");
+		System.out.println(account);
+	}
+
+	@Test
+	public void testMoreParams() {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("index", "0");
+		params.put("rows", "10");
+		List<Account> accounts = session.selectList(
+				"com.yu.user.mapper.AccountMapper.queryAll", params);
+		System.out.println(accounts);
+	}
 }

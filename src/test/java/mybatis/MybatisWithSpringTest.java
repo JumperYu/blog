@@ -18,8 +18,10 @@ public class MybatisWithSpringTest {
 
 	@Test
 	public void testMybatisDao() {
-		//accountDao.test();
+		accountDao.test();
 		accountDao.test_2();
+		accountDao.test_3();
+		accountDao.test_4();
 	}
 
 }
