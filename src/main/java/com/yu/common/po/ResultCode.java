@@ -1,4 +1,4 @@
-package com.yu.common;
+package com.yu.common.po;
 
 /**
  * 错误代码定义

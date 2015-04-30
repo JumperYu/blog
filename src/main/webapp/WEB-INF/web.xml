@@ -5,7 +5,11 @@
 	version="3.0" metadata-complete="true">
 
 	<description>树懒博客内容管理系统</description>
-
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
 	<!-- spring 初始化 -->
 	<servlet>
 		<servlet-name>spring</servlet-name>
@@ -28,7 +32,7 @@
 
 	<servlet-mapping>
 		<servlet-name>spring</servlet-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 	<!-- 统一字符编码为UTF-8 -->
@@ -57,8 +61,17 @@
 		</jsp-property-group>
 	</jsp-config>
 
-	<!-- 定义系统错误代码常量 <error-page> <error-code>400</error-code> <location>/WEB-INF/commons/400.jsp</location> 
-		</error-page> <error-page> <error-code>404</error-code> <location>/WEB-INF/commons/404.jsp</location> 
-		</error-page> <error-page> <error-code>500</error-code> <location>/WEB-INF/commons/500.jsp</location> 
-		</error-page> -->
+	<!-- 定义系统错误代码常量 -->
+	<error-page>
+		<error-code>400</error-code>
+		<location>/WEB-INF/commons/common-error.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/commons/common-error.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/commons/common-error.jsp</location>
+	</error-page>
 </web-app>

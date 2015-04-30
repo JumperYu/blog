@@ -54,30 +54,44 @@
 		</property>
 	</bean>
 
+	<!-- 定义FreeMarker的配置 -->
+	<bean id="freemarkerConfig"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/" />
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="template_update_delay">10</prop>
+				<prop key="defaultEncoding">UTF-8</prop>
+				<prop key="url_escaping_charset">UTF-8</prop>
+				<prop key="locale">zh_CN</prop>
+				<prop key="boolean_format">true,false</prop>
+				<prop key="time_format">HH:mm:ss</prop>
+				<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+				<prop key="date_format">yyyy-MM-dd</prop>
+				<prop key="number_format">#.##</prop>
+				<prop key="whitespace_stripping">true</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- FreeMarker的视图 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="cache" value="false" />
+		<property name="prefix" value="" />
+		<property name="suffix" value=".html" />
+		<property name="contentType" value="text/html;charset=utf-8" />
+		<property name="exposeRequestAttributes" value="true" />
+		<property name="exposeSessionAttributes" value="true" />
+		<property name="exposeSpringMacroHelpers" value="true" />
+	</bean>
+
 	<!-- 定义JSP文件的位置 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-
-	<!-- 定义FreeMarker的配置 -->
-	<!-- <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"> 
-		<property name="templateLoaderPath" value="/WEB-INF/views/" /> <property 
-		name="defaultEncoding" value="UTF-8" /> <property name="freemarkerSettings"> 
-		<props> <prop key="template_update_delay">10</prop> <prop key="defaultEncoding">UTF-8</prop> 
-		<prop key="url_escaping_charset">UTF-8</prop> <prop key="locale">zh_CN</prop> 
-		<prop key="boolean_format">true,false</prop> <prop key="time_format">HH:mm:ss</prop> 
-		<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop> <prop key="date_format">yyyy-MM-dd</prop> 
-		<prop key="number_format">#.##</prop> <prop key="whitespace_stripping">true</prop> 
-		</props> </property> </bean> -->
-	<!-- FreeMarker的视图 -->
-	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver"> 
-		<property name="cache" value="false" /> <property name="prefix" value="" 
-		/> <property name="suffix" value=".ftl" /> <property name="contentType" value="text/html;charset=utf-8" 
-		/> <property name="exposeRequestAttributes" value="true" /> <property name="exposeSessionAttributes" 
-		value="true" /> <property name="exposeSpringMacroHelpers" value="true" /> 
-		</bean> -->
 
 	<!-- 定义可上传视图 -->
 	<bean id="multipartResolver"
@@ -95,9 +109,10 @@
 				<!-- 暴露的url -->
 				<value>/index.html</value>
 				<value>/login.html</value>
-				<value>/auth/login.do</value>
+				<value>/auth/login</value>
 			</list>
 		</property>
+		<property name="loginPage" value="/login.html" />
 	</bean>
 
 	<!-- 拦截器：权限 -->
@@ -110,6 +125,9 @@
 			<ref bean="authInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
+
+	<!-- 定义无需Controller的url<->view直接映射 -->
+	<mvc:view-controller path="/" view-name="index" />
 
 	<!-- 全注解方式集成事物 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
@@ -135,7 +153,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations" value="classpath*:sql/*.xml" />
 	</bean>
-	
+
 	<!-- JNDI数据源 -->
 	<!-- <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
 		<property name="jndiName"> <value>java:comp/env/jdbc/cphoto</value> </property> 

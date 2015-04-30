@@ -59,7 +59,7 @@
                     password = $.trim(passwd.val());
             if (passport && password) {
                 $.ajax({
-                    url: '/auth/login.do',
+                    url: '/auth/login',
                     method: 'POST',
                     dataType: 'json',
                     timeout: 6000,
@@ -69,13 +69,8 @@
                     },
                     success: function (json) {
                         if (json.success)
-                           //window.location.href = json.object;
-                           window.location.href = "/test.do";
+                           window.location.href = "/welcome.html";
                         else
-                        /*bootbox.alert({
-                         title:'提示信息',
-                         message:json.message
-                         });*/
                             alert(json.message);
 
                     },

@@ -35,12 +35,6 @@
 		<!-- <package name="mybatis" /> -->
 	</typeAliases>
 	
-	<!-- 类型处理器 -->
-	<typeHandlers>
-	  <!-- 暂时没用 -->
-	  <typeHandler handler="mybatis.ExampleTypeHandler"/>
-	</typeHandlers>
-	
 	<!-- 环境 -->
 	<environments default="development">
 		<environment id="development">
