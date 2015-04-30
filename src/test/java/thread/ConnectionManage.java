@@ -1,13 +1,27 @@
 package thread;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ConnectionManage {
 
-	private static ThreadLocal<Connection> connectionHolder = new ThreadLocal<Connection>();
+	private static ThreadLocal<Connection> connectionHolder = new ThreadLocal<Connection>() {
+		@Override
+		protected Connection initialValue() {
+			Connection conn = null;
+			try {
+				conn = DriverManager.getConnection(
+						"jdbc:mysql://localhost:3306/test", "username",
+						"password");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return conn;
+		}
+	};
 
 	/**
 	 * 获取连接
@@ -16,7 +30,6 @@ public class ConnectionManage {
 	 */
 	public static Connection GetConnection() {
 		Connection conn = connectionHolder.get();
-
 
 		return conn;
 	}

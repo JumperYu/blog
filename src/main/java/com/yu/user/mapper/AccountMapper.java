@@ -5,9 +5,10 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Select;
 
+import com.yu.common.mapper.BaseMapper;
 import com.yu.user.po.Account;
 
-public interface AccountMapper {
+public interface AccountMapper extends BaseMapper{
 
 	@Select("SELECT * FROM Account WHERE passport = #{passport}")
 	public Account queryAccountByPassport(String passport);
@@ -19,5 +20,4 @@ public interface AccountMapper {
 
 	public List<Account> queryAll(Map<String, Object> params);
 
-	public int insert();
 }

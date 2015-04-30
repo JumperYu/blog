@@ -14,4 +14,19 @@
 		]]>
 	</select>
 	
+	<insert id="insert" parameterType="Map">
+	    insert into Account (passport, password) values (
+	    	#{passport}, #{password}
+	    )
+	</insert>
+	
+	<update id="update" parameterType="Map">
+		update Account set password=#{password}
+		where passport=#{passport}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		delete from Account where passport=#{passport}
+	</delete>
+	
 </mapper>
