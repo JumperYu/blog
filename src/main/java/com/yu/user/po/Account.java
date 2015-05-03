@@ -4,6 +4,13 @@ public class Account {
 
 	private String passport;
 	private String password;
+	
+	public Account() {
+	}
+	
+	public Account(String passport) {
+		this.passport = passport;
+	}
 
 	public String getPassport() {
 		return passport;

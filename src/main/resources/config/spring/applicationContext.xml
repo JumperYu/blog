@@ -107,6 +107,7 @@
 		<property name="excludeUrls">
 			<list>
 				<!-- 暴露的url -->
+				<value>/</value>
 				<value>/index.html</value>
 				<value>/login.html</value>
 				<value>/auth/login</value>

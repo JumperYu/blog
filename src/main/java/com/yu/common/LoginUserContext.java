@@ -7,7 +7,6 @@ public class LoginUserContext {
 	private static ThreadLocal<Account> curThread = new ThreadLocal<Account>();
 
 	public static Account getLoginAccount() {
-		System.out.println("----------" + Thread.currentThread().getName());
 		Account account = curThread.get();
 		return account;
 	}

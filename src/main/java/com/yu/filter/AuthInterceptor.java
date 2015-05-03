@@ -15,6 +15,15 @@ import org.springframework.web.servlet.ModelAndView;
 import com.yu.common.LoginUserContext;
 import com.yu.user.po.Account;
 
+/**
+ * 
+ * 拦截所有请求
+ * 检查ThreadLocal的副本变量和Cookie里面的存储值
+ *
+ * @author    zengxm
+ * @date       2015年5月2日
+ *
+ */
 public class AuthInterceptor implements HandlerInterceptor {
 
 	private static Map<String, Boolean> excludeUrlMap = new HashMap<String, Boolean>();
@@ -37,7 +46,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		System.out.println("------" + request.getRequestURI());
+		log.info(request.getRequestURI());
 		if (excludeUrlMap.containsKey(request.getRequestURI()))
 			return true;
 		else {
@@ -51,6 +60,8 @@ public class AuthInterceptor implements HandlerInterceptor {
 			if (cookies != null) {
 				for (Cookie cookie : cookies) {
 					if (cookie != null && "passport".equals(cookie.getName())) {
+						LoginUserContext.setLoginAccount(new Account(cookie
+								.getValue()));
 						log.info(String.format(
 								"The user %s is logged in cookied",
 								cookie.toString()));

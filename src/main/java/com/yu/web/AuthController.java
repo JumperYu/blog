@@ -28,7 +28,7 @@ public class AuthController extends BaseController {
 	public Result<String> login(Account account, HttpServletRequest request,
 			HttpServletResponse response) {
 		Cookie cookie = new Cookie("passport", account.getPassport());
-		cookie.setDomain("blog.bradypod.com"); // 请求域来源
+		cookie.setDomain("localhost"); // 请求域来源
 		cookie.setHttpOnly(true); // 前端脚本无法获取
 		cookie.setMaxAge(60 * 60 * 24 * 7); // -1 表示关闭浏览器则消失
 		cookie.setPath("/");
