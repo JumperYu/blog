@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.yu.common.LoginUserContext;
+import com.yu.common.util.LoginUserContext;
 import com.yu.user.po.Account;
 
 /**

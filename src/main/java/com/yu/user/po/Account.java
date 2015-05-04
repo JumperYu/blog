@@ -8,6 +8,11 @@ public class Account {
 	public Account() {
 	}
 	
+	public Account(String passport, String password) {
+		this.passport = passport;
+		this.password = password;
+	}
+
 	public Account(String passport) {
 		this.passport = passport;
 	}

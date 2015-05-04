@@ -1,4 +1,4 @@
-package com.yu.common;
+package com.yu.common.util;
 
 import com.yu.user.po.Account;
 

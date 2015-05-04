@@ -52,7 +52,7 @@ public class TestMybatis {
 	@Test
 	public void testAccout() {
 		AccountMapper mapper = session.getMapper(AccountMapper.class);
-		System.out.println(mapper.queryAccountByPassport("haha"));
+		System.out.println(mapper.queryAccountByPassport("zxm"));
 	}
 
 	@Test

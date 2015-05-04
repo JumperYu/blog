@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.yu.user.po.Account;
 import com.yu.user.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -18,12 +19,8 @@ public class TestMybatisWithSpringTest {
 
 	@Test
 	public void testMybatisDao() {
-
-//		userService.test();
-//		userService.test_2();
-//		userService.test_3();
-//		userService.test_4();
-		userService.test_5();
+		System.out.println(userService
+				.validateAccount(new Account("zxm", "123")));
 	}
 
 }

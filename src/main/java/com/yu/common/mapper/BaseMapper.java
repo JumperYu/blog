@@ -41,7 +41,5 @@ public interface BaseMapper {
 	public int delete(Object param);
 
 	public int delete();
-	
-	
 
 }

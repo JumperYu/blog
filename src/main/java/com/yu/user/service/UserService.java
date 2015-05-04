@@ -5,10 +5,12 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.yu.common.service.MyBatisBaseService;
 import com.yu.user.mapper.AccountMapper;
+import com.yu.user.po.Account;
 
 /**
  * 
@@ -29,32 +31,27 @@ public class UserService extends MyBatisBaseService {
 				AccountMapper.class);
 	}
 
-	public void test() {
-		log.info(accountMapper.queryAccountByPassport("haha").toString());
-	}
+	/**
+	 * 验证账号是否存在
+	 * 
+	 * @param passport
+	 *            账号
+	 * @param password
+	 *            地址
+	 * @return
+	 */
+	public boolean validateAccount(Account account) {
+		if (StringUtils.isEmpty(account.getPassport())
+				|| StringUtils.isEmpty(account.getPassword()))
+			return false;
 
-	public void test_2() {
-		log.info(accountMapper.selectAll().toString());
-	}
-
-	public void test_3() {
-		log.info(accountMapper.selectOne().toString());
-	}
-
-	public void test_4() {
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("index", 0);
-		params.put("rows", 10);
-		log.info(accountMapper.queryAll(params).toString());
-	}
+		params.put("passport", account.getPassport());
+		params.put("password", account.getPassword());
+		if (accountMapper.isExists(params) != 1)
+			return false;
 
-	public void test_5() {
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("passport", "haha");
-		params.put("password", "12345678");
-//		log.info("inserted: " + accountMapper.insert(params));
-//		log.info("updated:" + accountMapper.update(params));
-		log.info("deleted:" + accountMapper.delete(params));
+		return true;
 	}
 
 }
