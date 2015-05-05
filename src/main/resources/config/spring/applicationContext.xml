@@ -40,7 +40,7 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
-	<mvc:resources mapping="/static/**" location="/WEB-INF/views/" />
+	<mvc:resources mapping="/static/**" location="/static/" />
 
 	<!-- REST中根据URL后缀自动判定Content-Type及相应的View -->
 	<bean id="contentNegotiationManager"
