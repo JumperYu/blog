@@ -70,9 +70,9 @@
                     success: function (json) {
                         if (json.success)
                            window.location.href = "/welcome.html";
-                        else
-                            alert(json.message);
-
+                        else{
+                            alert(eval("'" + json.message + "'"));
+                        }
                     },
                     failure: function (dt) {
                         alert("failure");

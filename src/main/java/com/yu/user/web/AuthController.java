@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.baidu.ueditor.Encoder;
 import com.yu.common.po.Result;
 import com.yu.common.po.ResultCode;
 import com.yu.common.util.LoginUserContext;
@@ -46,6 +47,9 @@ public class AuthController extends BaseController {
 				LoginUserContext.setLoginAccount(account);
 				result.setCode(ResultCode.SUCCESS);
 				result.setMessage("成功登陆");
+			} else {
+				result.setCode(ResultCode.RECORD_NOT_EXIST);
+				result.setMessage(Encoder.toUnicode("账号或密码错误"));
 			}
 		} catch (Exception e) {
 			log.error("系统未知错误", e);
