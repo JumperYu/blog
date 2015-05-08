@@ -54,6 +54,7 @@
 		<!-- <mapper resource="sql/test.xml" /> -->
 		<!-- install java interface as mapper -->
 		<package name="com.yu.user.mapper"/>
+		<package name="com.yu.article.mapper"/>
 	</mappers>
 	
 	

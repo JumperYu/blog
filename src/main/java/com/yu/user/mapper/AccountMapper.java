@@ -14,7 +14,7 @@ import com.yu.user.po.Account;
  * @date 2015年5月4日
  *
  */
-public interface AccountMapper extends BaseMapper {
+public interface AccountMapper extends BaseMapper<Account> {
 
 	@Select("select * from account where passport=#{passport} and password=#{password}")
 	public Account queryAccount(Map<String, Object> params);
@@ -27,4 +27,4 @@ public interface AccountMapper extends BaseMapper {
 
 	@Select("select 1 from account where passport=#{passport}")
 	public int isExistsWithPassport(String passport);
-} 
+}

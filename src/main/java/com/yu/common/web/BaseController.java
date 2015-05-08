@@ -1,10 +1,14 @@
 package com.yu.common.web;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.yu.service.ArticleService;
 import com.yu.user.service.UserService;
 
 /**
@@ -18,11 +22,36 @@ import com.yu.user.service.UserService;
 public class BaseController {
 
 	protected final Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
+	public static final String RESOURCE_ROOT_PATH = "http://resource.bradypod.com/";
+	public static final String TEMPLATE_HEAD_PATH = "/template/default/head.html";
+	public static final String TEMPLATE_HEADER_PATH = "/template/default/header.html";
+	public static final String TEMPLATE_FOOTER_PATH = "/template/default/footer.html";
+	public static final String TEMPLATE_SCRIPT_PATH = "/template/default/script.html";
+
+	public static final Map<String, Object> INIT_PARAMS = new HashMap<String, Object>() {
+		private static final long serialVersionUID = 1L;
+
+		{
+			this.put("RESOURCE_ROOT_PATH", RESOURCE_ROOT_PATH);
+			this.put("TEMPLATE_HEAD_PATH", TEMPLATE_HEAD_PATH);
+			this.put("TEMPLATE_HEADER_PATH", TEMPLATE_HEADER_PATH);
+			this.put("TEMPLATE_FOOTER_PATH", TEMPLATE_FOOTER_PATH);
+			this.put("TEMPLATE_SCRIPT_PATH", TEMPLATE_SCRIPT_PATH);
+		}
+	};
+
 	@Resource
 	private UserService userService;
-	
+
+	@Resource
+	private ArticleService articleService;
+
 	public UserService getUserService() {
 		return userService;
+	}
+
+	public ArticleService getArticleService() {
+		return articleService;
 	}
 }

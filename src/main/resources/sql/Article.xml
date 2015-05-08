@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yu.article.mapper.ArticleMapper">
+
+	<!-- <insert id="addArticle" parameterType="com.yu.article.po.Article"> 
+		insert into article(folderId,path,adminId,title,summary,content,picture,status,`check`,createTime,updateTime) 
+		values(#{folderId},#{path},#{adminId},#{title},#{summary},#{content},#{picture},#{status},#{check},#{createTime},#{updateTime}) 
+		</insert> -->
+
+	<select id="queryArticle" parameterType="com.yu.article.po.Article"
+		resultType="com.yu.article.po.Article">
+		select * from article
+		<where>
+			path = #{path}
+			<if test="path == null">
+				and 1 = 2
+			</if>
+		</where>
+	</select>
+
+</mapper>

@@ -76,79 +76,12 @@
 <body class="boxed-page">
 	<div class="container">
 	<section id="container" class="">
-		<!--header start-->
-		<header class="white-bg">
-			<div class="container" style="background-color: #ffffff; padding: 10px;">
-				<!--logo start-->
-				<a href="/index.htm" class="logo" title="访问前台页面">
-					<img src="/images/logo.png" style="height: 38px;" />
-				</a>
-				<!--logo end-->
-				<div class="nav notify-row" id="top_menu">
-					<!--  notification goes here -->
-				</div>
-				<div class="top-nav ">
-	
-					<ul class="nav pull-right top-menu">
-	                  <!-- user login dropdown start-->
-	                  <li class="dropdown">
-	                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	                          <span class="username">zxm</span>
-	                          <b class="caret"></b>
-	                      </a>
-	                      <ul class="dropdown-menu extended logout">
-	                          <div class="log-arrow-up"></div>
-	                          <li><a href=""><i class="icon-cog"></i> 修改密码</a></li>
-	                          <li><a href=""><i class="icon-key"></i> 安全退出</a></li>
-	                      </ul>
-	                  </li>
-	                  <!-- user login dropdown end -->
-	              </ul>
-	          
-				</div>
-			</div>
-		</header>
-		<!--header end-->
-		<!--sidebar start-->
-		<aside>
-			<div id="sidebar" class="nav-collapse ">
-				<!-- sidebar menu goes here-->
-				<ul class="sidebar-menu" id="nav-accordion">
-					<li class="">
-						<a class="active" href="/manage/article/list.htm"> <i class="icon-book"></i> <span>文章列表</span></a>
-					</li>
-					<li class="sub-menu">
-						<a class="" href="/manage/headline/list.htm"> <i class="icon-desktop"></i> <span>首页头条</span></a>
-					</li>
-					<li class="">
-						<a href="/manage/folder/list.htm"> <i class="icon-folder-open"></i> <span>目录列表</span></a>
-					</li>	
-					<li class="">
-						<a class="" href="/manage/guestbook/list.htm"> <i class="icon-comments"></i> <span>留言列表</span></a>
-					</li>
-					<li class="">
-						<a class="" href="/manage/admin/manage.htm"> <i class="icon-user"></i> <span>管理员管理</span></a>
-					</li>
-					<li class="">
-						<a class="" href="/manage/admin/update.htm"> <i class="icon-cogs"></i> <span>修改密码</span></a>
-					</li>
-					<li class="">
-						<a class="" href="/manage/article/list.htm"> <i class="icon-book"></i> <span>文章列表</span></a>
-					</li>
-					<li class="">
-						<a class="" href="/manage/admin/update.htm"> <i class="icon-home"></i> <span>修改密码</span></a>
-					</li>
-					<li class="">
-						<a target="_blank" href="http://rj.baidu.com/soft/detail/14744.html"><span>推荐Google浏览器</span></a>
-					</li>
-				</ul>
-			</div>
-		</aside>
+
 		<!--sidebar end-->	
 <section id="main-content">
 		<section class="wrapper">
 			<!-- page start-->
-		<form id="add_article_form" class="form-horizontal" action="/article/submit.html"  autocomplete="off"  method="post"
+		<form id="add_article_form" class="form-horizontal" action="/article/submit"  autocomplete="off"  method="post"
 			enctype="multipart/form-data">
 		<div class="row">
 			<input type="hidden" name="articleId">
@@ -161,8 +94,8 @@
 						<div class="form-group">
                           <label class="col-sm-2 col-sm-2 control-label">选择封面</label>
                           <div class="col-sm-10">
-                          	<input type="file" name="file"
-                              	id="file" >
+                          	<!-- <input type="file" name="file"
+                              	id="file" > -->
                           </div>
                       	</div>
 						<div class="form-group">
@@ -178,7 +111,7 @@
                           <div class="col-sm-10">
                               <select class="form-control" name="folderId" style="font-size:15px;width: 300px;">
 			                        	<option value="123" selected>
-			                        	123
+			                        	2015/05/
 			                        	</option>
 	                            </select>			
                           </div>
@@ -222,7 +155,7 @@
                         </div>
                         <div class="form-group">
                       	  <div class="col-lg-offset-2 col-lg-10">
-                          <button class="btn btn-shadow btn-primary" type="submit">发布</button>
+                          <input class="btn btn-shadow btn-primary" type="submit">发布</button>
                           </div>
                       </div>
 					</div>
@@ -233,15 +166,18 @@
 		<!-- page end-->
 		<script type="text/javascript">
 $(function(){
-	$('#add_article_form').ajaxForm({
+ 	$('#add_article_form').ajaxForm({
 		dataType : 'json',
 		success : function(data) {
 			if (data.result) {
-				bootbox.alert("保存成功，将刷新页面", function() {
-					window.location.reload();
-				});
+				alert(eval("'" + data.message + "'"));
+				window.location.reload();
+				/*bootbox.alert(data.message, function() {
+					
+				}); */
 			}else{
-				showErrors($('#add_article_form'),data.errors);
+				alert(eval("'" + data.message + "'"));
+				//showErrors($('#add_article_form'), data.message);
 			}
 		}
 	});

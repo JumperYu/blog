@@ -5,6 +5,8 @@ import java.io.Serializable;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
+import com.baidu.ueditor.Encoder;
+
 /**
  * 通用JSON序列化对象
  *
@@ -73,7 +75,7 @@ public class Result<T> implements Serializable {
 	}
 
 	public void setMessage(String message) {
-		this.message = message;
+		this.message = Encoder.toUnicode(message);
 	}
 
 	public T getResult() {

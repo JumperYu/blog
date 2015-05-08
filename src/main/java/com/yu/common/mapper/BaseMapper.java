@@ -1,6 +1,5 @@
 package com.yu.common.mapper;
 
-import java.util.Map;
 
 /**
  * 
@@ -10,7 +9,7 @@ import java.util.Map;
  * @date 2015年4月30日
  *
  */
-public interface BaseMapper {
+public interface BaseMapper<T> {
 
 	/**
 	 * 
@@ -23,23 +22,7 @@ public interface BaseMapper {
 	 * @return int 
 	 * 			影响的数据表的行数
 	 */
-
-	public int insert(Map<String, Object> params);
-
-	public int insert(Object param);
-
-	public int insert();
-
-	public int update(Map<String, Object> params);
-
-	public int update(Object param);
-
-	public int update();
-
-	public int delete(Map<String, Object> params);
-
-	public int delete(Object param);
-
-	public int delete();
-
+	
+	 public int saveEntity(T t);
+	
 }
