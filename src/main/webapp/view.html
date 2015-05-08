@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<#include "${TEMPLATE_HEAD_PATH}">
+ </head>
+<body onload="prettyPrint()">
+	<div class="container">
+		<#include "${TEMPLATE_HEADER_PATH}">
+    	<div class="wrapper">
+		<div class="row">
+	        <div class="col-md-12">
+				<article class="news-item">
+	  		    	<h2>${article.summary}<small> ${article.createTime}</small></h2>
+	  		  	</aritcle>
+				<div>
+				<p>${article.content}</p>
+				</div><!-- end pretty div -->
+	       	</div><!-- end col md 12 div -->
+    	</div><!-- end row -->
+    	</div><!-- end wrapper -->
+    	<#include "${TEMPLATE_FOOTER_PATH}">
+    </div><!-- end container -->
+  <#include "${TEMPLATE_SCRIPT_PATH}">
+</body>
+</html>
