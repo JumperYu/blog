@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>树懒博客</title>
+<#include "${TEMPLATE_HEAD_PATH}">
+ </head>
+<body>
+<div class="container">
+	<header class="header">
+		<div class="title"><a title="bradypod's blog" href="/">BradyPod's blog 树懒博客</a></div>
+		<ul class="nav navbar-nav navbar-right visible-lg visible-md">
+        <li>
+          <form id="search-form" class="form-group has-success visible-lg" role="form">
+            <input type="text" class="form-control input-sm" placeholder="Search" id="query" style="width: 110px;">
+          </form>
+        </li>
+        <li><a href="https://github.com/JumperYu" title="我的github主页"><i class="icon-github"></i> github</a></li>
+        <li><a href="http://weibo.com/javaserverfaces/home?wvr=5" title="我的微博主页"><i class="icon-pinterest-sign"></i> weibo</a></li>
+        <li><a href="index.html" title="联系我"><i class="icon-phone"></i> telphone</a></li>
+     	</ul>
+    </header>
+
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-md-9">
+          <#list articles as article>
+          <article class="news-item">
+          <h4><a href="${article.path}" target="_blank">${article.title}</a><small>  ${article.updateTime}</small></h4>
+              ${article.summary}
+          </article>
+          </#list>
+        </div>
+        <div class="col-md-3">
+          <section>
+          <h4>目录结构</h4>
+          <ul> 
+            <li><a href="/">java</a></li>      
+            <li><a href="/">mysql</a></li>
+            <li><a href="/">nginx</a></li>  
+          </ul>
+          </section>
+          <section>
+          <h4>友情链接</h4>
+          <ul> 
+            <li><a href="http://www.bradypod.com/" target="_blank">树懒导航</a></li>
+            <li><a href="http://shop.bradypod.com/" target="_blank">树懒商城</a></li>   
+            <li><a href="http://www.hao123.com/" target="_blank">hao123</a></li>
+            <li><a href="http://www.baidu.com/" target="_blank">百度</a></li>
+          </ul>
+          </section> 
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div class="well well-large well-transparent lead">
+      <i class="icon-spinner icon-spin icon-2x pull-left"> </i>
+      尽请期待...
+    </div>
+    	<#include "${TEMPLATE_FOOTER_PATH}">
+    </div><!-- end container -->
+  <#include "${TEMPLATE_SCRIPT_PATH}">
+</body>
+</html>
