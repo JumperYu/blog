@@ -1,5 +1,6 @@
 package com.yu.user.web;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yu.article.mapper.ArticleMapper;
+import com.yu.article.po.Article;
 import com.yu.common.po.Result;
 import com.yu.common.po.ResultCode;
 import com.yu.common.util.LoginUserContext;
@@ -59,7 +62,10 @@ public class AuthController extends BaseController {
 	}
 
 	@RequestMapping("/index.html")
-	public String index() {
+	public String index(Map<String, Object> context) {
+		context.putAll(INIT_PARAMS);
+		List<Article> articles = getArticleService().getAllArticles();
+		context.put("articles", articles);
 		return "index";
 	}
 

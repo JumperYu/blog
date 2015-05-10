@@ -1,5 +1,7 @@
 package com.yu.service;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Service;
@@ -50,5 +52,14 @@ public class ArticleService extends MyBatisBaseService {
 		article.setPath(path);
 		return articleMapper.queryArticle(article);
 	}
-
+	
+	/**
+	 * 按最新事件批量获取文章简介
+	 * 
+	 * 
+	 * 
+	 */
+	public List<Article> getAllArticles(){
+		return articleMapper.queryAllArticles();
+	}
 }

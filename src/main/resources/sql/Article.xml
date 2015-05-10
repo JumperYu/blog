@@ -19,5 +19,11 @@
 			</if>
 		</where>
 	</select>
+	
+	<select id="queryAllArticles" parameterType="com.yu.article.po.Article"
+		resultType="com.yu.article.po.Article">
+		select * from article
+		order by createTime desc
+	</select>
 
 </mapper>

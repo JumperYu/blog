@@ -39,6 +39,6 @@ public class TestMybatisWithSpringTest {
 	
 	@Test
 	public void testArticleServiceQuery() {
-		System.out.println(articleService.getArticle(null));
+		System.out.println(articleService.getAllArticles());
 	}
 }

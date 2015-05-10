@@ -1,5 +1,7 @@
 package com.yu.article.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 
 import com.yu.article.po.Article;
@@ -9,6 +11,8 @@ public interface ArticleMapper extends BaseMapper<Article> {
 
 	@Insert("insert into article(title,summary,content,createTime,updateTime) values(#{title},#{summary},#{content},now(),now())")
 	public int saveEntity(Article article);
-	
+
 	public Article queryArticle(Article article);
+
+	public List<Article> queryAllArticles();
 }
