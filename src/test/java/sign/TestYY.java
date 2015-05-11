@@ -17,6 +17,7 @@ public class TestYY {
 	private long time;
 
 	private static final String KEY_93PK = "mmgs4cl3x_jwyegDT2e9oWzyx8iDOgh6";
+	private static final String KEY_8090 = "7Zo5aWhjh4949b5G_7bBTnxVpQYTrHmi";
 
 	@Before
 	public void init() {
@@ -60,16 +61,16 @@ public class TestYY {
 	@Test
 	public void testPostCharge() {
 		// sign=84f0eb3123a916dbc7f1705a889714f9
-		String path = "http://proxy.gop.yy.com/common/smyy/93pk/charge.do";
+		String path = "http://proxy.gop.yy.com/common/smyy/8090/charge.do";
 		String game = "smyy";
-		String platform = "160yx";
-		String uid = "hiko01";
+		String platform = "8090";
+		String uid = "qiufuqi";
 		String serverCode = "s0";
-		String orderId = "cs0001ss8001ac";
-		int gameCurrency = 100; // 元宝
-		int rmb = 10; // 元或分
+		String orderId = "cs3165555413132";
+		int gameCurrency = 10; // 元宝
+		int rmb = 1; // 元或分
 		String signKey = String.format("%s%s%s%s%s%s%s%d%s", game, platform,
-				serverCode, uid, orderId, rmb, gameCurrency, time, KEY_93PK);
+				serverCode, uid, orderId, rmb, gameCurrency, time, KEY_8090);
 		String sign = DigestUtils.md5Hex(signKey).toString();
 		String content = String
 				.format("uid=%s&serverCode=%s&time=%d&orderId=%s&gameCurrency=%d&rmb=%d&sign=%s",

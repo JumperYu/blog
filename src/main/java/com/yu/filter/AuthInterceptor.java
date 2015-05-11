@@ -70,7 +70,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 				}
 			}
 			log.info("The user is not log in, redirect to the login page");
-			response.sendRedirect(loginPage);
+			response.sendRedirect(loginPage + "?fromPage=" + request.getRequestURI());
 			return false;
 		}
 	}

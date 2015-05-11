@@ -25,7 +25,7 @@
         <div class="col-md-9">
           <#list articles as article>
           <article class="news-item">
-          <h4><a href="${article.path}" target="_blank">${article.title}</a><small>  ${article.updateTime}</small></h4>
+          <h4><a href="${article.path}.html" target="_blank">${article.title}</a><small>  ${article.updateTime}</small></h4>
               ${article.summary}
           </article>
           </#list>
