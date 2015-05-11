@@ -72,6 +72,7 @@ public class AuthController extends BaseController {
 	public String welcome(Map<String, Object> context) {
 		Account account = LoginUserContext.getLoginAccount();
 		context.put("account", account);
+		context.putAll(INIT_PARAMS);
 		return "welcome";
 	}
 
