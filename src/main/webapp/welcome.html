@@ -18,10 +18,10 @@
 					<a href="#">全部文章</a>
 				</li>
 <!-- 			<li>
-					<a href="/manage/article/list.htm?check=init">未审核()</a>
+					<a href="#">未审核()</a>
 				</li>
 				<li>
-					<a href="/manage/article/list.htm?check=no">审核退回()</a>
+					<a href="#">审核退回()</a>
 				</li> -->
 	            </ul>
 	            <!--breadcrumbs end -->
@@ -52,15 +52,16 @@
 						<th>文章名称</th>
 						<th>状态</th>
 						<th>审核</th>
-   						<th>所属目录</th>
+   						<th>所属路径</th>
    						<th>最后更新时间</th>
    						<th>操作</th>
  						</tr>
                        </thead>
                    	<tbody role="alert" aria-live="polite" aria-relevant="all">
+                   		<#list articles as article>
                    		<tr class="gradeA odd">
    							<td>
-   								<a href="#"></a>
+   								<a href="#">${article.title}</a>
    							</td>
    							<td>
    									显示
@@ -74,11 +75,9 @@
 								<!-- <span style="color:red;">审核退回</span> -->
    							</td>
                 			<td>
-                				<a href="#">
-                					/2015/05/11
-                				</a>
+                				<a href="#">${article.path}</a>
                 			</td>
-                        	<td>2015-04-11</td>
+                        	<td>${article.createTime}</td>
                         	<td>
       							<!-- Icons -->
       							<a href="#" title="修改">
@@ -94,6 +93,7 @@
       							</a>
     						</td>
                     	</tr>
+                    	</#list>
                    	</tbody>
                   </table>
                   <div style="height: 30px;">

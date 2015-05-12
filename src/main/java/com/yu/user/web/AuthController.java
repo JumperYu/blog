@@ -41,7 +41,7 @@ public class AuthController extends BaseController {
 			if (isExists) {
 				Cookie cookie = new Cookie("passport", account.getPassport());
 				cookie.setDomain("localhost"); // 请求域来源
-				cookie.setHttpOnly(true); // 前端脚本无法获取
+				cookie.setHttpOnly(true); // 前端脚本无法获取z
 				cookie.setMaxAge(60 * 60 * 24 * 7); // -1 表示关闭浏览器则消失
 				cookie.setPath("/");
 				response.addCookie(cookie);
@@ -72,6 +72,7 @@ public class AuthController extends BaseController {
 	public String welcome(Map<String, Object> context) {
 		Account account = LoginUserContext.getLoginAccount();
 		context.put("account", account);
+		context.put("articles", getArticleService().getAllArticles());
 		context.putAll(INIT_PARAMS);
 		return "welcome";
 	}

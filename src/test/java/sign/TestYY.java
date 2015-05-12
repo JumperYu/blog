@@ -16,8 +16,8 @@ public class TestYY {
 
 	private long time;
 
-	private static final String KEY_93PK = "mmgs4cl3x_jwyegDT2e9oWzyx8iDOgh6";
-	private static final String KEY_8090 = "7Zo5aWhjh4949b5G_7bBTnxVpQYTrHmi";
+	public static final String KEY_93PK = "mmgs4cl3x_jwyegDT2e9oWzyx8iDOgh6";
+	public static final String KEY_8090 = "7Zo5aWhjh4949b5G_7bBTnxVpQYTrHmi";
 
 	@Before
 	public void init() {
@@ -37,7 +37,7 @@ public class TestYY {
 	@Test
 	public void testGetRole() {
 		// gameName+platformName+serverCode+uid+time+key
-		String signKey = String.format("%s%s%s%s%d%d%s", "smyy", "pt", "s0",
+		String signKey = String.format("%s%s%s%s%d%d%s", "smyy", "lcyx", "s0",
 				"uid", time, 1, "key");
 		String sign = DigestUtils.md5Hex(signKey).toString();
 		System.out.println("---------sign key:" + signKey);
