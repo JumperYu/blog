@@ -4,25 +4,32 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yu.article.mapper.ArticleMapper">
 
-	<!-- <insert id="addArticle" parameterType="com.yu.article.po.Article"> 
-		insert into article(folderId,path,adminId,title,summary,content,picture,status,`check`,createTime,updateTime) 
-		values(#{folderId},#{path},#{adminId},#{title},#{summary},#{content},#{picture},#{status},#{check},#{createTime},#{updateTime}) 
-		</insert> -->
-
 	<select id="queryArticle" parameterType="com.yu.article.po.Article"
 		resultType="com.yu.article.po.Article">
 		select * from article
 		<where>
-			path = #{path}
-			<if test="path == null">
+			articleId = #{articleId}
+			<if test="articleId == null">
 				and 1 = 2
 			</if>
 		</where>
 	</select>
 	
-	<select id="queryAllArticles" parameterType="com.yu.article.po.Article"
+	<select id="queryAllArticles" parameterType="Map"
 		resultType="com.yu.article.po.Article">
 		select * from article
+		<where>
+			1=1
+			<if test="year != null">
+				and #{year} = DATE_FORMAT(createTime, '%Y') 
+			</if>
+			<if test="month != null">
+				and #{month} = DATE_FORMAT(createTime, '%m') 
+			</if>
+			<if test="day != null">
+				and #{day} = DATE_FORMAT(createTime, '%d') 
+			</if>
+		</where>
 		order by createTime desc
 	</select>
 

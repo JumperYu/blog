@@ -59,22 +59,18 @@ public class AuthController extends BaseController {
 		}
 		return result;
 	}
-
+	
+	@RequestMapping("/")
+	public String root(Map<String, Object> context) {
+		return index(context);
+	}
+	
 	@RequestMapping("/index.html")
 	public String index(Map<String, Object> context) {
 		context.putAll(INIT_PARAMS);
-		List<Article> articles = getArticleService().getAllArticles();
+		List<Article> articles = getArticleService().getAllArticles("", "", "");
 		context.put("articles", articles);
 		return "index";
-	}
-
-	@RequestMapping("/welcome.html")
-	public String welcome(Map<String, Object> context) {
-		Account account = LoginUserContext.getLoginAccount();
-		context.put("account", account);
-		context.put("articles", getArticleService().getAllArticles());
-		context.putAll(INIT_PARAMS);
-		return "welcome";
 	}
 
 	@RequestMapping("/login.html")

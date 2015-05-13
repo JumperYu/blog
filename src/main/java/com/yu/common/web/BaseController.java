@@ -22,13 +22,18 @@ import com.yu.user.service.UserService;
 public class BaseController {
 
 	protected final Logger log = LoggerFactory.getLogger(this.getClass());
-
-	public static final String RESOURCE_ROOT_PATH = "http://resource.bradypod.com/";
+	
+	// 资源地址
+	public static final String RESOURCE_ROOT_PATH = "http://resource.bradypod.com/"; 
+	// 首页模板地址
 	public static final String TEMPLATE_HEAD_PATH = "/template/default/head.html";
 	public static final String TEMPLATE_HEADER_PATH = "/template/default/header.html";
 	public static final String TEMPLATE_FOOTER_PATH = "/template/default/footer.html";
 	public static final String TEMPLATE_SCRIPT_PATH = "/template/default/script.html";
-
+	// 树懒博客地址
+	public static final String ROOT_BLOG_BRADYPOD_COM_PATH = "http://localhost";//http://blog.bradypod.com
+	
+	
 	public static final Map<String, Object> INIT_PARAMS = new HashMap<String, Object>() {
 		private static final long serialVersionUID = 1L;
 
@@ -38,6 +43,7 @@ public class BaseController {
 			this.put("TEMPLATE_HEADER_PATH", TEMPLATE_HEADER_PATH);
 			this.put("TEMPLATE_FOOTER_PATH", TEMPLATE_FOOTER_PATH);
 			this.put("TEMPLATE_SCRIPT_PATH", TEMPLATE_SCRIPT_PATH);
+			this.put("ROOT_BLOG_BRADYPOD_COM_PATH", ROOT_BLOG_BRADYPOD_COM_PATH);
 		}
 	};
 

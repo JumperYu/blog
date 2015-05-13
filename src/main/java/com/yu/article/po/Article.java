@@ -13,7 +13,9 @@ import org.apache.commons.lang.builder.ToStringBuilder;
  *
  */
 public class Article {
-
+	
+	private long articleId;
+	
 	private String path;
 
 	private String title;
@@ -22,9 +24,17 @@ public class Article {
 
 	private String content;
 
-	private Date createTime;
+	private Date createTime = new Date(System.currentTimeMillis());
 
-	private Date updateTime;
+	private Date updateTime = new Date(System.currentTimeMillis());
+	
+	public long getArticleId() {
+		return articleId;
+	}
+
+	public void setArticleId(long articleId) {
+		this.articleId = articleId;
+	}
 
 	public String getPath() {
 		return path;

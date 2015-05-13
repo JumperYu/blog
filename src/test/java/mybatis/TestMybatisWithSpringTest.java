@@ -32,13 +32,19 @@ public class TestMybatisWithSpringTest {
 	@Test
 	public void testArticleServiceAdd() {
 		Article article = new Article();
-		article.setTitle("Do not go gentle into that good night");
+		article.setArticleId(21);
+		article.setTitle("Do not g");
 		article.setContent("Do not go gentle into that good night, rage, rage agianst the dying of time.");
-		System.out.println(articleService.addArticle(article));
+		System.out.println(articleService.saveOrUpdateArticle(article));
 	}
 	
 	@Test
 	public void testArticleServiceQuery() {
-		System.out.println(articleService.getAllArticles());
+		System.out.println(articleService.getAllArticles("2015", "05", "10"));
+	}
+	
+	@Test
+	public void testQueryArticle(){
+		System.out.println(articleService.getArticle(6));
 	}
 }
