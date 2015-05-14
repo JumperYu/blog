@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.yu.article.po.Article;
-import com.yu.service.ArticleService;
+import com.yu.article.service.ArticleService;
 import com.yu.user.po.Account;
 import com.yu.user.service.UserService;
 

@@ -9,7 +9,7 @@
 
 	<description>博客内容管理系统</description>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.yu.blog</groupId>
+	<groupId>com.yu.website</groupId>
 	<artifactId>blog</artifactId>
 	<version>1.0.1</version>
 	<packaging>war</packaging>
@@ -19,6 +19,11 @@
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.yu.website</groupId>
+			<artifactId>common-service</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 		<!-- jetty start -->
 		<dependency>
 			<groupId>org.mortbay.jetty</groupId>

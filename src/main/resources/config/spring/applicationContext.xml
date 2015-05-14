@@ -100,33 +100,6 @@
 		<property name="maxUploadSize" value="20000000" />
 	</bean>
 
-	<!-- **************** 拦截器 ************************** -->
-	<bean id="authInterceptor" class="com.yu.filter.AuthInterceptor">
-		<!-- <property name="loginUrl" value="/index.html" /> <property name="errorUrl" 
-			value="/404.html" /> -->
-		<property name="excludeUrls">
-			<list>
-				<!-- 暴露的url -->
-				<value>/</value>
-				<value>/index.html</value>
-				<value>/login.html</value>
-				<value>/auth/login</value>
-			</list>
-		</property>
-		<property name="loginPage" value="/login.html" />
-	</bean>
-
-	<!-- 拦截器：权限 -->
-	<mvc:interceptors>
-		<!-- author chenjianhong 耗时拦截器, 拦截所有请求(直接定义在mvc:interceptors下) -->
-		<bean class="com.yu.filter.TimeConsumingInterceptor" />
-
-		<mvc:interceptor>
-			<mvc:mapping path="/**" />
-			<ref bean="authInterceptor" />
-		</mvc:interceptor>
-	</mvc:interceptors>
-
 	<!-- 定义无需Controller的url<->view直接映射 -->
 	<mvc:view-controller path="/" view-name="index" />
 
