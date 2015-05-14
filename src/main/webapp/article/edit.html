@@ -29,7 +29,7 @@
 						添加文章
 					</header>
 					<div class="panel-body">
-						<input type="hidden" name="articleId" value="<#if article??>${article.articleId}</#if>">
+						<input type="hidden" name="articleId" value="<#if article??>${article.articleId}<#else>0</#if>">
 						<div class="form-group">
                           <label class="col-sm-2 col-sm-2 control-label">文章标题</label>
                           <div class="col-sm-10">
@@ -63,7 +63,7 @@
                           <label class="col-sm-2 col-sm-2 control-label">发布时间</label>
                           <div class="col-sm-10">
                               <input type="text" data-link-format="yyyy-MM-dd" data-date-format="yyyy-MM-dd" style="font-size:15px;width: 200px;" class="js_create_time" name="createTime"
-                              	placeholder="发布时间" id="createTime" value="2015-05-06" value="<#if article??>${article.createTime}</#if>">
+                              	placeholder="发布时间" id="createTime" value="<#if article??>${article.createTime}</#if>">
                               </input>
                           </div>
                         </div> 
